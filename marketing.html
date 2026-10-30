@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Tron Wallet Analyzer — check a Tron address before you send USDT</title>
+  <meta name="description"
+    content="Tron Wallet Analyzer checks Tron addresses that send or receive USDT: Tether freezes, the OFAC sanctions list and transfers between addresses, every finding with its reason and a link. On iPhone, iPad and Mac." />
+  <meta name="theme-color" content="#000000" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Tron Wallet Analyzer — facts behind every address" />
+  <meta property="og:description"
+    content="Check a Tron address before you send USDT: Tether freezes, the OFAC list and transfers, every finding with its reason and a link." />
+  <meta property="og:image" content="https://vybgss.github.io/tron-wallet-analyzer-docs/assets/og-image.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+  <link rel="stylesheet" href="assets/site.css" />
+</head>
+
+<body>
+  <header class="bar">
+    <div class="bar-inner">
+      <a class="brand" href="marketing.html"><img src="assets/icon.png" alt="" /><span>Tron Wallet Analyzer</span></a>
+      <nav class="nav" aria-label="Site">
+        <a href="marketing.html" aria-current="page">Overview</a>
+        <a href="support.html">Support</a>
+        <a href="privacy-policy.html">Privacy</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-inner">
+        <!-- An address as the check shows it: the ends that people compare in bold, then its color. -->
+        <div class="chip" aria-hidden="true">
+          <span class="addr"><b>TFoU</b>ECAcpQZx3akak3ncPt57ojwHme<b>SeVx</b></span>
+          <span class="badge caution">Caution</span>
+        </div>
+
+        <p class="kicker">USDT on TRON</p>
+        <h1>Check any address<br /> <span class="mint">before you send USDT</span></h1>
+        <p class="lede">
+          Tether freezes, the OFAC sanctions list and the transfers between addresses — read
+          straight from the network and shown as facts, each with its reason and a link you can
+          verify.
+        </p>
+        <div class="actions">
+          <!-- Becomes a link to the App Store page once the app is out. -->
+          <span class="button primary">Coming soon on the App Store</span>
+          <a class="button ghost" href="support.html">How it works</a>
+        </div>
+        <p class="requires">For iOS 26, iPadOS 26 and macOS 26 or later</p>
+
+        <img class="devices" src="assets/img/hero-devices.webp" width="1800" height="1183"
+          alt="Tron Wallet Analyzer on iPad, MacBook, iPhone Duo and iPhone, showing the watchlist, a transfer graph and an address check" />
+      </div>
+    </section>
+
+    <div class="wide">
+      <section class="feature">
+        <div class="feature-text">
+          <p class="label">Address check</p>
+          <h2>Every color has a reason and a link</h2>
+          <p>
+            Paste an address or scan its QR code. The app reads Tether's freeze state and history
+            for it, the OFAC sanctions list, its account and balances, and its USDT transfers
+            with frozen or sanctioned addresses one or two steps away.
+          </p>
+          <ul class="nodes">
+            <li>Each finding says why it sets the color and links to its transaction on Tronscan</li>
+            <li>Green means no findings in the checked scope — it is not a guarantee</li>
+            <li>The limits of the check are listed with the result</li>
+          </ul>
+        </div>
+        <div class="feature-art">
+          <img class="phone" src="assets/img/phone-check.webp" width="640" height="1236" loading="lazy"
+            alt="iPhone showing an address check in yellow: facts that need your attention, with direct transfers with a flagged address and links to the transactions" />
+        </div>
+      </section>
+
+      <section class="feature flip">
+        <div class="feature-text">
+          <p class="label">Transfer graph</p>
+          <h2>See where the money flows</h2>
+          <p>
+            Addresses become nodes and USDT transfers become edges, with totals and dates. The
+            colors follow the same facts as the check.
+          </p>
+          <ul class="nodes">
+            <li>Tap a node for its color reasons and transfers</li>
+            <li>Expand any address one more step</li>
+            <li>Filter by amount and period, export the graph as CSV</li>
+          </ul>
+        </div>
+        <div class="feature-art">
+          <img class="tablet" src="assets/img/ipad-graph.webp" width="860" height="1091" loading="lazy"
+            alt="iPad showing a transfer graph with the card of the root address open: why it is yellow and the transfers in the graph" />
+        </div>
+      </section>
+
+      <section class="feature">
+        <div class="feature-text">
+          <p class="label">Wallets</p>
+          <h2>Audit everyone who pays you</h2>
+          <p>
+            Add your own addresses — only the addresses, no keys — and see who sent you USDT and
+            where you sent it, with an audit of every counterparty.
+          </p>
+          <ul class="nodes">
+            <li>Received and sent totals, counterparties and the period at a glance</li>
+            <li>Findings per wallet, with the transactions behind them</li>
+            <li>Energy and fees of each wallet one tap away</li>
+          </ul>
+        </div>
+        <div class="feature-art">
+          <img class="phone" src="assets/img/phone-wallets.webp" width="640" height="1236" loading="lazy"
+            alt="iPhone showing My Wallets with two wallets, the summary of received and sent USDT and the findings" />
+        </div>
+      </section>
+
+      <section class="feature flip">
+        <div class="feature-text">
+          <p class="label">Address poisoning</p>
+          <h2>Spot a lookalike before you paste it</h2>
+          <p>
+            Poisoning sends you a tiny transfer from an address that starts and ends like one you
+            use, hoping you copy it from your history. Keep the addresses you trust as contacts,
+            and the app tells them apart.
+          </p>
+          <ul class="nodes">
+            <li>Warnings about lookalikes and zero or dust transfers from them</li>
+            <li>Full addresses with every differing character highlighted</li>
+            <li>Compare any two addresses; on Mac, an optional clipboard guard</li>
+          </ul>
+        </div>
+        <div class="feature-art">
+          <img class="duo" src="assets/img/duo-spoofing.webp" width="700" height="943" loading="lazy"
+            alt="iPhone Duo showing two contacts and the comparison of a contact's address with a lookalike that shares its first and last characters" />
+        </div>
+      </section>
+
+      <section class="feature">
+        <div class="feature-text">
+          <p class="label">Monitoring</p>
+          <h2>Alerts on freezes and new transfers</h2>
+          <p>
+            Put addresses on a watchlist and the app checks them when it opens, through
+            Background App Refresh on iPhone and iPad, and on a timer on Mac.
+          </p>
+          <ul class="nodes">
+            <li>Notifications for new incoming USDT</li>
+            <li>When a watched address is frozen by Tether</li>
+            <li>When a counterparty becomes frozen or sanctioned</li>
+          </ul>
+        </div>
+        <div class="feature-art">
+          <img class="laptop" src="assets/img/mac-monitor.webp" width="1278" height="834" loading="lazy"
+            alt="MacBook showing the Monitor tab with the last run and events: incoming USDT, an address frozen by Tether and a counterparty that is now frozen" />
+        </div>
+      </section>
+
+      <section class="feature flip">
+        <div class="feature-text">
+          <p class="label">Energy &amp; fees</p>
+          <h2>Know the fee before you send</h2>
+          <p>
+            A USDT transfer burns TRX unless the sender has energy. See what one transfer from
+            your wallet costs now, at live network prices.
+          </p>
+          <ul class="nodes">
+            <li>Your wallet's energy, bandwidth and staked TRX</li>
+            <li>About twice the energy when the recipient has no USDT — every check shows it</li>
+            <li>The TRX to stake instead of burning, and the break-even point</li>
+          </ul>
+        </div>
+        <div class="feature-art">
+          <img class="phone" src="assets/img/phone-energy.webp" width="640" height="1236" loading="lazy"
+            alt="iPhone showing Energy & Fees of the main wallet: energy and bandwidth bars and the TRX one USDT transfer burns" />
+        </div>
+      </section>
+
+      <section>
+        <div class="section-head">
+          <p class="label">Built on trust</p>
+          <h2>Facts, not verdicts</h2>
+          <p>Colors summarize public on-chain facts and public lists. The app judges no person and no funds, and every finding can be checked at its source.</p>
+        </div>
+        <div class="grid">
+          <div class="card">
+            <svg class="glyph" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z" />
+              <circle cx="12" cy="12" r="3" />
+            </svg>
+            <h3>Read-only</h3>
+            <p>Never asks for private keys or seed phrases and cannot send funds. It is not a wallet.</p>
+          </div>
+          <div class="card">
+            <svg class="glyph" viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="6" y="2" width="12" height="20" rx="3" />
+              <path d="M10.5 18.5h3" />
+            </svg>
+            <h3>Your data stays here</h3>
+            <p>Wallets, contacts, watchlist and history live on your device. No account, no server, no tracking.</p>
+          </div>
+          <div class="card">
+            <svg class="glyph" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="2.5" />
+              <circle cx="4.5" cy="5" r="2" />
+              <circle cx="19.5" cy="5" r="2" />
+              <circle cx="12" cy="20.5" r="2" />
+              <path d="M10.3 10.3 6 6.4M13.7 10.3 18 6.4M12 14.5v4" />
+            </svg>
+            <h3>Straight to the source</h3>
+            <p>TronGrid, Tronscan and the public OFAC list on GitHub, asked directly from your device.</p>
+          </div>
+          <div class="card">
+            <svg class="glyph" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="8" cy="15" r="4.5" />
+              <path d="M11.2 11.8 20 3M16.5 6.5l2.5 2.5M14 9l2 2" />
+            </svg>
+            <h3>Free API keys</h3>
+            <p>Works without them; free TronGrid and Tronscan keys make checks faster. Kept in the Keychain.</p>
+          </div>
+          <div class="card">
+            <svg class="glyph" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6 2h8.5L19 6.5V22H6z" />
+              <path d="M14 2v5h5M9 12.5h7M9 16.5h5" />
+            </svg>
+            <h3>Reports</h3>
+            <p>A PDF report of a check with the date, sources and links; CSV of transfers, graphs and audits.</p>
+          </div>
+          <div class="card">
+            <svg class="glyph" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M2 12h20M12 2c2.8 2.9 4.2 6.2 4.2 10s-1.4 7.1-4.2 10c-2.8-2.9-4.2-6.2-4.2-10S9.2 4.9 12 2z" />
+            </svg>
+            <h3>Seven languages</h3>
+            <p>English, German, French, Ukrainian, Spanish, Japanese and Portuguese.</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-head">
+          <p class="label">Free and Pro</p>
+          <h2>Start free, go further with Pro</h2>
+        </div>
+        <div class="plans">
+          <div class="card">
+            <h3>Free</h3>
+            <p>Everything you need to check before a payment.</p>
+            <ul class="nodes">
+              <li>3 address checks a day</li>
+              <li>Checks and graphs one step deep</li>
+              <li>Wallets, contacts, lookalike warnings and address compare</li>
+              <li>Energy &amp; fees</li>
+            </ul>
+          </div>
+          <div class="card pro">
+            <h3>Pro</h3>
+            <p>Monthly, yearly or a one-time purchase.</p>
+            <ul class="nodes">
+              <li>Unlimited address checks</li>
+              <li>Checks and graphs two steps deep</li>
+              <li>Watchlist monitoring with notifications</li>
+              <li>PDF reports and CSV export</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="closing">
+        <img src="assets/icon.png" width="104" height="104" alt="Tron Wallet Analyzer app icon" />
+        <h2>Check before you pay</h2>
+        <p>One app for iPhone, iPad and Mac.</p>
+        <!-- Becomes a link to the App Store page once the app is out. -->
+        <span class="button primary">Coming soon on the App Store</span>
+      </section>
+    </div>
+  </main>
+
+  <footer class="foot">
+    <nav aria-label="Footer">
+      <a href="support.html">Support</a>
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="mailto:volodymyr.sichka@gmail.com">Contact</a>
+    </nav>
+    <p>© 2026 Volodymyr Sichka</p>
+    <p class="legal">Tron Wallet Analyzer is an information tool, not legal, compliance or investment
+      advice. TRON, Tether and USDT are trademarks of their respective owners; the app is not
+      affiliated with or endorsed by TRON DAO, Tether, TronGrid or Tronscan.</p>
+  </footer>
+</body>
+
+</html>

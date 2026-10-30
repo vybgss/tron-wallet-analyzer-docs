@@ -1,0 +1,855 @@
+/*
+  Tron Wallet Analyzer — shared style for the website.
+
+  The colours and shapes are the app's Midnight theme (Theme.swift and
+  Components.swift in the app's source): a black ground with a soft mint glow
+  at the top and a blue one at the bottom, translucent rounded cards, small
+  spaced capitals for section headers, a mint accent, addresses in a
+  monospaced face with the first and last four characters bold, and the risk
+  colours, which never change meaning.
+*/
+
+:root {
+  color-scheme: dark;
+
+  --ground: #000000;
+  --ground-end: #08080b;
+  --ink: #ffffff;
+  --ink-2: rgba(255, 255, 255, 0.72);
+  --muted: rgba(255, 255, 255, 0.5);
+  --card: rgba(255, 255, 255, 0.07);
+  --card-solid: #121414;
+  --field: rgba(255, 255, 255, 0.08);
+  --hairline: rgba(255, 255, 255, 0.08);
+  --hairline-strong: rgba(255, 255, 255, 0.14);
+  --accent: #1fe0ae;
+  --accent-soft: rgba(31, 224, 174, 0.14);
+  --on-accent: #0b0f17;
+  --glow-mint: rgba(18, 201, 154, 0.2);
+  --glow-blue: rgba(77, 124, 255, 0.12);
+
+  /* Risk colours of the dark themes */
+  --no-findings: #3cc98a;
+  --caution: #f2b33d;
+  --high: #ff5d5d;
+
+  --text: -apple-system, BlinkMacSystemFont, system-ui, "SF Pro Text", "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif;
+  --display: -apple-system, BlinkMacSystemFont, system-ui, "SF Pro Display", "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif;
+  --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  background: var(--ground);
+}
+
+body {
+  margin: 0;
+  font-family: var(--text);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ink);
+  background-color: var(--ground);
+  /* ThemeBackground: the palette's first colour glows top left, its fourth bottom right. */
+  background-image: radial-gradient(70vmax 70vmax at 5% 0%, var(--glow-mint), transparent 60%),
+    radial-gradient(60vmax 60vmax at 100% 100%, var(--glow-blue), transparent 60%),
+    linear-gradient(180deg, var(--ground), var(--ground-end));
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: var(--accent);
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1px;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+strong {
+  font-weight: 650;
+}
+
+code,
+.addr {
+  font-family: var(--mono);
+  font-size: 0.92em;
+}
+
+/* AddressText: the first and last four characters carry the address. */
+.addr {
+  color: var(--ink-2);
+  overflow-wrap: anywhere;
+}
+
+.addr b {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+kbd {
+  font-family: var(--text);
+  font-size: 0.8em;
+  font-weight: 600;
+  padding: 1px 6px;
+  border-radius: 6px;
+  background: var(--field);
+  border: 1px solid var(--hairline-strong);
+  white-space: nowrap;
+}
+
+/* ---------------------------------------------------------------- Top bar */
+
+/* A dark glass bar, like the app's toolbars over the Midnight ground. */
+.bar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  padding-top: env(safe-area-inset-top);
+  background: rgba(0, 0, 0, 0.55);
+  -webkit-backdrop-filter: saturate(160%) blur(20px);
+  backdrop-filter: saturate(160%) blur(20px);
+  border-bottom: 1px solid var(--hairline);
+}
+
+.bar-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  height: 58px;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: inherit;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 16.5px;
+  letter-spacing: -0.01em;
+  flex-shrink: 0;
+}
+
+.brand img {
+  width: 30px;
+  height: 30px;
+}
+
+/* The tab bar: a capsule with the current page in a lighter pill and mint text. */
+.nav {
+  margin-left: auto;
+  display: flex;
+  gap: 2px;
+  padding: 3px;
+  border-radius: 999px;
+  background: var(--card);
+  border: 1px solid var(--hairline);
+}
+
+.nav a {
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 5px 13px;
+  border-radius: 999px;
+  opacity: 0.85;
+}
+
+.nav a:hover {
+  background: var(--field);
+  opacity: 1;
+}
+
+.nav a[aria-current="page"] {
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--accent);
+  font-weight: 650;
+  opacity: 1;
+}
+
+@media (max-width: 520px) {
+  .brand span {
+    display: none;
+  }
+
+  .nav a {
+    padding: 5px 11px;
+  }
+}
+
+/* ---------------------------------------------------------------- Documents */
+
+.page {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 36px 16px 24px;
+}
+
+/* A large title over the ground, as on every tab of the app, with the icon beside it. */
+.page-head {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  margin: 0 4px 26px;
+}
+
+.page-head img {
+  width: 76px;
+  height: 76px;
+  flex-shrink: 0;
+  filter: drop-shadow(0 6px 18px rgba(31, 224, 174, 0.18));
+}
+
+.page-head h1 {
+  font-family: var(--display);
+  font-size: 34px;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  margin: 0 0 6px;
+}
+
+.page-head p {
+  margin: 0;
+  color: var(--ink-2);
+}
+
+@media (max-width: 520px) {
+  .page-head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .page-head h1 {
+    font-size: 29px;
+  }
+}
+
+/* SectionHeader: small, spaced, half-white capitals. */
+.label {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  margin: 30px 12px 10px;
+}
+
+/* GroupCard */
+.card {
+  background: var(--card);
+  border: 1px solid var(--hairline);
+  border-radius: 22px;
+  padding: 18px 22px;
+  margin-bottom: 12px;
+}
+
+.card h2,
+.card h3 {
+  font-size: 17px;
+  line-height: 1.35;
+  margin: 0 0 6px;
+  letter-spacing: -0.005em;
+}
+
+.card p,
+.card li {
+  font-size: 15px;
+  color: var(--ink-2);
+}
+
+.card strong {
+  color: var(--ink);
+}
+
+.card p {
+  margin: 0.5em 0;
+}
+
+.card p:last-child {
+  margin-bottom: 0;
+}
+
+.card ul {
+  margin: 0.5em 0 0;
+  padding-left: 1.2em;
+}
+
+.card li + li {
+  margin-top: 0.3em;
+}
+
+/* The summary card: mint edge like a selected row. */
+.short {
+  border-color: rgba(31, 224, 174, 0.35);
+  background: linear-gradient(135deg, rgba(31, 224, 174, 0.1), rgba(255, 255, 255, 0.05) 60%);
+}
+
+/* DisclaimerNote: an outlined box in muted text. */
+.note {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  padding: 14px 16px;
+  color: var(--muted);
+  font-size: 13.5px;
+  margin: 14px 0 12px;
+}
+
+/* Anchored cards stop below the sticky bar. */
+[id] {
+  scroll-margin-top: 76px;
+}
+
+.card .toc,
+.card .levels {
+  padding-left: 0;
+}
+
+.toc {
+  columns: 2 230px;
+  column-gap: 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.toc li {
+  break-inside: avoid;
+  font-size: 15px;
+  padding: 3px 0;
+}
+
+.toc a {
+  text-decoration: none;
+}
+
+.toc a:hover {
+  text-decoration: underline;
+}
+
+/* RiskBadge: a coloured dot and title in a tinted capsule. */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  vertical-align: 1px;
+}
+
+.badge::before {
+  content: "";
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.badge.no-findings {
+  color: var(--no-findings);
+  background: rgba(60, 201, 138, 0.15);
+}
+
+.badge.caution {
+  color: var(--caution);
+  background: rgba(242, 179, 61, 0.15);
+}
+
+.badge.high {
+  color: var(--high);
+  background: rgba(255, 93, 93, 0.15);
+}
+
+/* Rows of a card, each with a badge on the left: the levels explained. */
+.levels {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0;
+}
+
+.card .levels li {
+  display: grid;
+  grid-template-columns: 128px 1fr;
+  gap: 12px;
+  align-items: start;
+  padding: 10px 0;
+  margin: 0;
+  border-top: 1px solid var(--hairline);
+}
+
+.card .levels li:first-child {
+  border-top: 0;
+  padding-top: 4px;
+}
+
+@media (max-width: 520px) {
+  .card .levels li {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+}
+
+/* ---------------------------------------------------------------- Footer */
+
+.foot {
+  max-width: 760px;
+  margin: 28px auto 0;
+  padding: 24px 16px calc(40px + env(safe-area-inset-bottom));
+  text-align: center;
+  color: var(--muted);
+  font-size: 13.5px;
+  border-top: 1px solid var(--hairline);
+}
+
+.foot p {
+  margin: 4px 0;
+}
+
+.foot nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+  margin-bottom: 10px;
+}
+
+.foot nav a {
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.foot nav a:hover {
+  text-decoration: underline;
+}
+
+.foot .legal {
+  font-size: 12.5px;
+  max-width: 600px;
+  margin: 10px auto 0;
+}
+
+.motto {
+  color: var(--ink-2);
+  font-weight: 600;
+}
+
+/* ---------------------------------------------------------------- Landing page */
+
+/* The hero stands at the root of a transfer graph, like the App Store header. */
+.hero {
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(900px 520px at 50% 30%, rgba(31, 224, 174, 0.16), transparent 70%);
+}
+
+/* The graph fades out toward the middle, so on any width the text stays on a clean ground. */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("network.svg") center top / 1600px auto no-repeat;
+  -webkit-mask-image: radial-gradient(closest-side at 50% 34%, transparent 55%, #000 95%);
+  mask-image: radial-gradient(closest-side at 50% 34%, transparent 55%, #000 95%);
+  pointer-events: none;
+}
+
+@media (max-width: 640px) {
+  .hero::before {
+    opacity: 0.4;
+  }
+}
+
+.hero-inner {
+  position: relative;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 72px 16px 0;
+  text-align: center;
+}
+
+/* An address as the check shows it, with its badge. */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 12px;
+  max-width: 100%;
+  padding: 9px 10px 9px 18px;
+  margin-bottom: 26px;
+  border-radius: 999px;
+  background: rgba(10, 14, 14, 0.75);
+  border: 1px solid var(--hairline-strong);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.5);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.chip .addr {
+  font-size: 14px;
+}
+
+@media (max-width: 460px) {
+  .chip {
+    border-radius: 18px;
+    padding: 10px 14px;
+  }
+
+  .chip .addr {
+    font-size: 12.5px;
+  }
+}
+
+.kicker {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 12px;
+}
+
+.hero h1 {
+  font-family: var(--display);
+  font-size: clamp(36px, 6.4vw, 64px);
+  line-height: 1.03;
+  letter-spacing: -0.025em;
+  margin: 0 auto 18px;
+  max-width: 860px;
+  text-shadow: 0 0 40px rgba(31, 224, 174, 0.25);
+}
+
+.mint {
+  color: var(--accent);
+}
+
+.hero .lede {
+  font-size: clamp(16px, 2.2vw, 19px);
+  color: var(--ink-2);
+  max-width: 660px;
+  margin: 0 auto 28px;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* PrimaryButton and ActionButton */
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 16px;
+  padding: 12px 24px;
+  border-radius: 14px;
+  text-decoration: none;
+}
+
+.button.primary {
+  background: var(--accent);
+  color: var(--on-accent);
+  box-shadow: 0 6px 24px rgba(31, 224, 174, 0.28);
+}
+
+.button.ghost {
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.09);
+  border: 1px solid var(--hairline);
+}
+
+.button:hover {
+  text-decoration: none;
+  filter: brightness(1.08);
+}
+
+.requires {
+  font-size: 13.5px;
+  color: var(--muted);
+  margin: 16px 0 0;
+}
+
+.devices {
+  display: block;
+  width: min(1060px, 100%);
+  margin: 34px auto 0;
+}
+
+.wide {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.feature {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 40px;
+  padding: 64px 0 8px;
+}
+
+.feature.flip .feature-text {
+  order: 2;
+}
+
+.feature-art {
+  display: flex;
+  justify-content: center;
+}
+
+.feature-art img.phone {
+  width: 320px;
+}
+
+/* The iPhone Duo's outer screen is wider than a phone's. */
+.feature-art img.duo {
+  width: 400px;
+}
+
+.feature-art img.tablet {
+  width: 440px;
+}
+
+.feature-art img.laptop {
+  width: 640px;
+}
+
+.feature .label,
+.section-head .label {
+  margin: 0 auto 10px;
+  color: var(--accent);
+  letter-spacing: 0.14em;
+}
+
+.feature h2 {
+  font-family: var(--display);
+  font-size: clamp(28px, 3.6vw, 40px);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  margin: 0 0 14px;
+}
+
+.feature p {
+  margin: 0 0 14px;
+  font-size: 17px;
+  color: var(--ink-2);
+}
+
+/* List bullets drawn as graph nodes: a mint dot with a soft glow. */
+.nodes {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nodes li {
+  position: relative;
+  padding-left: 26px;
+  margin: 9px 0;
+  font-size: 16px;
+}
+
+.nodes li::before {
+  content: "";
+  position: absolute;
+  left: 3px;
+  top: 0.55em;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 10px rgba(31, 224, 174, 0.7);
+}
+
+@media (max-width: 760px) {
+  .feature {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    padding-top: 52px;
+  }
+
+  .feature.flip .feature-text {
+    order: 0;
+  }
+
+  .feature-art img.phone {
+    width: 270px;
+  }
+
+  .feature-art img.duo {
+    width: 330px;
+  }
+}
+
+.section-head {
+  text-align: center;
+  padding: 80px 0 26px;
+}
+
+.section-head h2 {
+  font-family: var(--display);
+  font-size: clamp(28px, 3.6vw, 40px);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.section-head p {
+  color: var(--ink-2);
+  max-width: 620px;
+  margin: 12px auto 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.grid .card {
+  margin: 0;
+  padding: 20px 22px 22px;
+}
+
+.grid .card h3 {
+  font-size: 17px;
+  margin: 12px 0 6px;
+}
+
+.grid .card p {
+  margin: 0;
+}
+
+/* IconTile: a mint rounded square with a dark glyph. */
+.glyph {
+  width: 38px;
+  height: 38px;
+  display: block;
+  border-radius: 10px;
+  background: var(--accent);
+  padding: 8px;
+}
+
+.glyph * {
+  fill: none;
+  stroke: var(--on-accent);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Free and Pro side by side. */
+.plans {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.plans .card {
+  margin: 0;
+  padding: 22px 24px 24px;
+}
+
+.plans .card.pro {
+  border-color: rgba(31, 224, 174, 0.35);
+  background: linear-gradient(160deg, rgba(31, 224, 174, 0.12), rgba(255, 255, 255, 0.05) 55%);
+}
+
+.plans h3 {
+  font-family: var(--display);
+  font-size: 22px;
+  margin: 0 0 4px;
+}
+
+.plans .card > p {
+  margin: 0 0 12px;
+}
+
+.plans .nodes {
+  padding-left: 0;
+}
+
+.plans .nodes li {
+  font-size: 15px;
+  color: var(--ink-2);
+}
+
+.plans .card:not(.pro) .nodes li::before {
+  background: rgba(255, 255, 255, 0.55);
+  box-shadow: none;
+}
+
+@media (max-width: 640px) {
+  .plans {
+    grid-template-columns: 1fr;
+  }
+}
+
+.closing {
+  text-align: center;
+  padding: 84px 0 40px;
+}
+
+.closing img {
+  width: 104px;
+  height: 104px;
+  filter: drop-shadow(0 10px 30px rgba(31, 224, 174, 0.25));
+}
+
+.closing h2 {
+  font-family: var(--display);
+  font-size: clamp(28px, 3.6vw, 38px);
+  letter-spacing: -0.02em;
+  margin: 18px 0 6px;
+}
+
+.closing p {
+  color: var(--ink-2);
+  margin: 0 0 24px;
+}

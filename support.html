@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Tron Wallet Analyzer — Support</title>
+  <meta name="description" content="Answers to common questions about Tron Wallet Analyzer, the app that checks Tron addresses before you send USDT, and how to get in touch." />
+  <meta name="theme-color" content="#000000" />
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+  <link rel="stylesheet" href="assets/site.css" />
+</head>
+
+<body>
+  <header class="bar">
+    <div class="bar-inner">
+      <a class="brand" href="marketing.html"><img src="assets/icon.png" alt="" /><span>Tron Wallet Analyzer</span></a>
+      <nav class="nav" aria-label="Site">
+        <a href="marketing.html">Overview</a>
+        <a href="support.html" aria-current="page">Support</a>
+        <a href="privacy-policy.html">Privacy</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+    <div class="page-head">
+      <img src="assets/icon.png" width="76" height="76" alt="Tron Wallet Analyzer app icon" />
+      <div>
+        <h1>Support</h1>
+        <p>Answers to common questions are below. If yours is not here,
+          <a href="#contact">write to us</a>.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <ul class="toc">
+        <li><a href="#what">What is Tron Wallet Analyzer?</a></li>
+        <li><a href="#check">How do I check an address?</a></li>
+        <li><a href="#colors">What do the colors mean?</a></li>
+        <li><a href="#sources">Where do the facts come from?</a></li>
+        <li><a href="#limits">What are the limits of a check?</a></li>
+        <li><a href="#graph">How does the transfer graph work?</a></li>
+        <li><a href="#wallets">How do I audit my wallets?</a></li>
+        <li><a href="#poisoning">How does it catch address poisoning?</a></li>
+        <li><a href="#monitoring">How does monitoring work?</a></li>
+        <li><a href="#energy">What is Energy &amp; Fees?</a></li>
+        <li><a href="#reports">Reports and exports</a></li>
+        <li><a href="#keys">Do I need API keys?</a></li>
+        <li><a href="#pro">What is free and what is Pro?</a></li>
+        <li><a href="#restore">Restore, cancel or change a plan</a></li>
+        <li><a href="#keys-safe">Does the app need my private key?</a></li>
+        <li><a href="#data">Where is my data, and how do I erase it?</a></li>
+        <li><a href="#settings">Language and themes</a></li>
+        <li><a href="#requirements">System requirements</a></li>
+        <li><a href="#contact">Contact and feedback</a></li>
+      </ul>
+    </div>
+
+    <p class="label">Getting started</p>
+
+    <div class="card" id="what">
+      <h3>What is Tron Wallet Analyzer?</h3>
+      <p>
+        An app for iPhone, iPad and Mac that checks Tron addresses which send or receive USDT
+        (TRC-20). Before you pay someone, or after someone pays you, it shows the public facts
+        about an address: whether Tether has frozen its USDT, whether it is on the OFAC
+        sanctions list, and whether it has exchanged USDT with addresses that are. It reads only
+        public data, needs no account, and never asks for keys.
+      </p>
+    </div>
+
+    <div class="card" id="check">
+      <h3>How do I check an address?</h3>
+      <p>
+        Open the <strong>Check</strong> tab, paste the address with <strong>Paste</strong> or
+        type it, and tap <strong>Check</strong>. On iPhone and iPad, <strong>Scan QR</strong>
+        reads it from a QR code. The result shows the color, every finding with its reason and
+        transactions, the account (type, activation date, TRX and USDT balances, transaction
+        count) and what sending USDT to that address costs. From there you can open its graph,
+        copy it, add it to your contacts, mark it as your own or watch it.
+      </p>
+    </div>
+
+    <div class="card" id="colors">
+      <h3>What do the colors mean?</h3>
+      <p>Each color comes only from verifiable facts, and each fact is listed with its link:</p>
+      <ul class="levels">
+        <li><span><span class="badge high">High</span></span>
+          <span>Tether has frozen the USDT on this address, Tether has destroyed its frozen
+            balance, or the address is on the OFAC sanctions list.</span></li>
+        <li><span><span class="badge caution">Caution</span></span>
+          <span>The address was frozen by Tether earlier and later unfrozen, it has direct USDT
+            transfers with a frozen or sanctioned address, or it received zero or dust transfers
+            from a lookalike of one of its counterparties.</span></li>
+        <li><span><span class="badge no-findings">No findings</span></span>
+          <span>None of the above in the checked scope. It is not a guarantee: it means only that
+            the checked data contains no such facts.</span></li>
+      </ul>
+      <p>
+        A flagged address two steps away is shown as information and does not change the color.
+      </p>
+      <div class="note">
+        Tron Wallet Analyzer is an information tool. Colors summarize public on-chain facts and
+        public lists within the checked scope; they are not a legal, compliance or investment
+        opinion about a person or funds. Verify every finding through its link before acting.
+      </div>
+    </div>
+
+    <div class="card" id="sources">
+      <h3>Where do the facts come from?</h3>
+      <ul>
+        <li><strong>Tether's USDT contract on TRON</strong>, through TronGrid: the live freeze
+          state of the address and the history of Tether's freeze, unfreeze and destroy events.</li>
+        <li><strong>The OFAC sanctions list</strong>: the Tron addresses on it, from the public
+          list maintained on GitHub (0xB10C/ofac-sanctioned-digital-currency-addresses).</li>
+        <li><strong>TronGrid and Tronscan</strong>: accounts, balances, USDT transfers and public
+          name tags.</li>
+      </ul>
+      <p>
+        The OFAC list and an index of Tether's freeze events are downloaded to your device and
+        kept up to date; their state is in Settings → <strong>Reference Data</strong>.
+      </p>
+    </div>
+
+    <div class="card" id="limits">
+      <h3>What are the limits of a check?</h3>
+      <p>
+        Every result lists what it could not cover, for example: no API key (slower requests,
+        no name tag), only the newest transfers of a very busy address analyzed, the local index
+        of Tether freezes still downloading on first launch, or a service that did not answer.
+        Run the check again later to fill the gaps.
+      </p>
+    </div>
+
+    <p class="label">Features</p>
+
+    <div class="card" id="graph">
+      <h3>How does the transfer graph work?</h3>
+      <p>
+        In the <strong>Graph</strong> tab, enter an address or tap <strong>Graph</strong> on a
+        check. Nodes are addresses and edges are USDT transfers with totals and dates; nodes are
+        green, yellow or red by the same facts as the check. Tap a node for its reasons and
+        transfers, or to expand it one more step. Filter by minimum amount and period, zoom and
+        pan with the controls in the corner.
+      </p>
+    </div>
+
+    <div class="card" id="wallets">
+      <h3>How do I audit my wallets?</h3>
+      <p>
+        In <strong>Wallets → My Wallets</strong>, add your addresses (only addresses, no keys)
+        and tap <strong>Analyze Incoming and Outgoing</strong>. You see who sent you USDT and
+        where you sent it, the totals and dates, and an audit of every counterparty with its
+        findings. The <strong>“…”</strong> menu of a wallet has Check, Graph, Energy &amp; Fees,
+        Rename, Watch and Not My Wallet.
+      </p>
+    </div>
+
+    <div class="card" id="poisoning">
+      <h3>How does it catch address poisoning?</h3>
+      <p>
+        Address poisoning sends you a zero or tiny transfer from an address that starts and ends
+        like one you use, so it shows up in your history and gets copied by mistake. Save the
+        addresses you have verified in <strong>Wallets → Contacts</strong>. The app then warns
+        about lookalikes — same first and last characters, different address — and about zero or
+        dust transfers from them, and shows full addresses with every differing character
+        highlighted. <strong>Compare Two Addresses</strong> checks any pair. On Mac, the optional
+        <strong>Clipboard Guard</strong> in the Monitor tab compares every Tron address you copy
+        with your wallets and contacts.
+      </p>
+    </div>
+
+    <div class="card" id="monitoring">
+      <h3>How does monitoring work?</h3>
+      <p>
+        Add addresses to the watchlist in the <strong>Monitor</strong> tab, or tap
+        <strong>Watch</strong> on a check. The watchlist is checked when the app opens; on iPhone
+        and iPad also through Background App Refresh, at times iOS chooses; on Mac every 15, 30,
+        60 or 180 minutes while the app is running, also with the window closed. You get a
+        notification for new incoming USDT, when a watched address is frozen by Tether, and when
+        a counterparty becomes frozen or sanctioned. If notifications don't arrive, check that
+        they are allowed for the app and, on iPhone and iPad, that Background App Refresh is on
+        in the system Settings.
+      </p>
+    </div>
+
+    <div class="card" id="energy">
+      <h3>What is Energy &amp; Fees?</h3>
+      <p>
+        A USDT transfer on TRON uses energy and bandwidth, paid by the sender. Without staked
+        energy, TRX is burned instead. Open <strong>Energy &amp; Fees</strong> from a wallet's
+        <strong>“…”</strong> menu to see its energy and bandwidth, the TRX one USDT transfer from
+        it burns now, and how much TRX to stake for a number of transfers per day, with the
+        break-even point. Each check also shows what sending USDT to that address costs: about
+        twice the energy when the address holds no USDT. Prices come live from the network. It is
+        a calculation, not financial advice.
+      </p>
+    </div>
+
+    <div class="card" id="reports">
+      <h3>Reports and exports</h3>
+      <p>
+        A check can be saved as a <strong>PDF Report</strong> with the date, the sources and the
+        transaction links. Transfers, graphs and counterparty audits export as
+        <strong>CSV</strong>. Files are created on your device and go where you send them.
+      </p>
+    </div>
+
+    <p class="label">API keys</p>
+
+    <div class="card" id="keys">
+      <h3>Do I need API keys?</h3>
+      <p>
+        No, but they help. Without keys the app works in a limited mode: requests to TronGrid are
+        slowed to about one per second, and Tronscan's name tag and transaction count are not
+        shown. Both keys are free:
+      </p>
+      <ul>
+        <li><strong>TronGrid</strong>: sign in at
+          <a href="https://www.trongrid.io/dashboard/keys">trongrid.io</a> and create an API key.</li>
+        <li><strong>Tronscan</strong>: sign in at <a href="https://tronscan.org/">tronscan.org</a>
+          and create an API key in your account's API keys section.</li>
+      </ul>
+      <p>
+        Paste them in Settings → <strong>API Keys</strong> and tap <strong>Test Key</strong>.
+        Keys are stored only in this device's Keychain and sent only to the service that issued
+        them.
+      </p>
+    </div>
+
+    <p class="label">Pro</p>
+
+    <div class="card" id="pro">
+      <h3>What is free and what is Pro?</h3>
+      <p>
+        Free: 3 address checks a day, checks and graphs one step deep, wallets and their audit,
+        contacts, lookalike warnings, address compare and Energy &amp; Fees.
+      </p>
+      <p>
+        <strong>Pro</strong> adds unlimited checks, checks and graphs two steps deep, watchlist
+        monitoring with notifications, and PDF and CSV export. It is a monthly or yearly
+        subscription, or a one-time Lifetime purchase. Tap <strong>Get Pro</strong> on the Check
+        tab or <strong>See Plans</strong> in Settings.
+      </p>
+    </div>
+
+    <div class="card" id="restore">
+      <h3>Restore, cancel or change a plan</h3>
+      <ul>
+        <li><strong>New device or reinstall:</strong> tap <strong>Restore Purchases</strong> on
+          the plans screen or in Settings, signed in with the same Apple Account.</li>
+        <li><strong>Cancel or change a subscription:</strong> in Settings →
+          <strong>Manage Subscription</strong>, or in your Apple Account's subscriptions. Pro
+          stays until the end of the paid period.</li>
+        <li><strong>Lifetime with a running subscription:</strong> Apple does not cancel the
+          subscription for you. Cancel it in your Apple Account if you no longer need it.</li>
+        <li><strong>Refunds</strong> are handled by Apple at
+          <a href="https://reportaproblem.apple.com/">reportaproblem.apple.com</a>.</li>
+      </ul>
+    </div>
+
+    <p class="label">Privacy and safety</p>
+
+    <div class="card" id="keys-safe">
+      <h3>Does the app need my private key or seed phrase?</h3>
+      <p>
+        Never. Tron Wallet Analyzer is read-only: it works with public addresses only, never asks
+        for private keys, seed phrases or signatures, and cannot send, receive or move funds. It
+        is not a wallet. If anyone asks you for your seed phrase in the app's name, it is not us.
+      </p>
+    </div>
+
+    <div class="card" id="data">
+      <h3>Where is my data, and how do I erase it?</h3>
+      <p>
+        Your wallets, contacts, watchlist and check history stay on your device and are not
+        synced. Settings → <strong>Erase All Local Data</strong> deletes them together with the
+        cached answers; API keys stay in the Keychain until you clear them. See the
+        <a href="privacy-policy.html">Privacy Policy</a>.
+      </p>
+    </div>
+
+    <p class="label">Settings</p>
+
+    <div class="card" id="settings">
+      <h3>Language and themes</h3>
+      <p>
+        The app speaks English, German, French, Ukrainian, Spanish, Japanese and Portuguese. It
+        follows your device language, falling back to English, and you can change it in Settings
+        → <strong>Appearance</strong> or in the system's per-app language setting. Five themes
+        are there too: <strong>Midnight</strong> (the default), Ocean, Serene, Cosmic and the
+        light Pure.
+      </p>
+    </div>
+
+    <div class="card" id="requirements">
+      <h3>System requirements</h3>
+      <p>
+        iPhone with iOS 26 or later, iPad with iPadOS 26 or later, or a Mac with macOS 26 or
+        later. An internet connection is needed to check addresses.
+      </p>
+    </div>
+
+    <div class="card short" id="contact">
+      <h3>Contact and feedback</h3>
+      <p>
+        Didn't find your answer, see a result that looks wrong, or missing something you need?
+        Write to us — we read everything. The address and a screenshot of the result help a lot.
+      </p>
+      <p>
+        <strong>Email:</strong>
+        <a href="mailto:volodymyr.sichka@gmail.com?subject=Tron%20Wallet%20Analyzer%20support">volodymyr.sichka@gmail.com</a>
+      </p>
+    </div>
+  </main>
+
+  <footer class="foot">
+    <nav aria-label="Footer">
+      <a href="marketing.html">Overview</a>
+      <a href="privacy-policy.html">Privacy Policy</a>
+    </nav>
+    <p class="motto">Facts behind every address.</p>
+    <p>© 2026 Volodymyr Sichka</p>
+    <p class="legal">TRON, Tether and USDT are trademarks of their respective owners; the app is not
+      affiliated with or endorsed by TRON DAO, Tether, TronGrid or Tronscan.</p>
+  </footer>
+</body>
+
+</html>
